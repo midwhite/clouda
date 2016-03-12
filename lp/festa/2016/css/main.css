@@ -1,0 +1,161 @@
+a {
+  color: #2196F3;
+  text-decoration: none; }
+  a:hover {
+    color: #1976D2; }
+
+ul {
+  list-style: none; }
+
+h2 {
+  padding: 5px 0px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center; }
+
+h3 {
+  max-width: 600px;
+  min-width: 300px;
+  padding: 5px 0px;
+  margin: 0px auto;
+  border-top: 3px double #3e3e3e;
+  border-bottom: 3px double #3e3e3e;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center; }
+
+.clear {
+  clear: both; }
+
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: #FF5722;
+  color: #FFf;
+  font-weight: bold;
+  z-index: 3; }
+  header ul li {
+    width: 25%;
+    float: left;
+    padding: 5px 0px;
+    border-bottom: 1px solid #E64A19;
+    text-align: center;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5); }
+    header ul li:hover {
+      background: #E64A19;
+      cursor: pointer; }
+
+@media screen and (max-width: 500px) {
+  header ul li {
+    width: 50%;
+    box-shadow: 0px 0px 0px; } }
+.firstview {
+  margin-top: 27px;
+  position: relative; }
+  .firstview img {
+    width: 100%; }
+  .firstview .first {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.45); }
+    .firstview .first h1 {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      font-size: 45px;
+      text-align: center; }
+    .firstview .first .date {
+      position: absolute;
+      top: 90px;
+      width: 100%;
+      padding-top: 4px;
+      font-weight: bold;
+      text-align: center; }
+    .firstview .first .welcome {
+      position: absolute;
+      top: 70px;
+      left: 0px;
+      right: 0px;
+      min-width: 300px;
+      max-width: 350px;
+      padding-bottom: 4px;
+      margin: 0px auto;
+      border-bottom: 1px dashed #3e3e3e;
+      font-weight: bold;
+      text-align: center; }
+    .firstview .first .copy {
+      position: absolute;
+      bottom: 30px;
+      left: 20px;
+      right: 20px;
+      padding: 5px 0px;
+      margin: 0px auto;
+      border-top: 2px solid #FFF;
+      border-bottom: 2px solid #FFF;
+      background: rgba(0, 0, 0, 0.5);
+      color: #FFF;
+      font-weight: bold;
+      text-align: center; }
+
+@media screen and (max-width: 500px) {
+  .firstview {
+    margin-top: 54px; } }
+.subject h2 {
+  border: 0px; }
+.subject ul {
+  max-width: 600px;
+  min-width: 290px;
+  width: 80%;
+  padding: 5px 0px;
+  margin: 0px auto; }
+  .subject ul li {
+    width: 30%;
+    float: left;
+    padding: 10px 0px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    .subject ul li:first-child {
+      background: rgba(0, 0, 0, 0.15); }
+    .subject ul li:not(:first-child) {
+      margin-left: 5%; }
+    .subject ul li:hover {
+      background: rgba(0, 0, 0, 0.15); }
+.subject .description {
+  max-width: 600px;
+  padding: 10px;
+  margin: 0px auto;
+  margin-bottom: 5px;
+  background: #FBE9E7;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  display: none; }
+  .subject .description.play {
+    display: block; }
+  .subject .description p {
+    text-indent: 1em; }
+  .subject .description span {
+    margin-right: 5px;
+    text-align: right;
+    display: block; }
+    .subject .description span:hover {
+      text-decoration: underline;
+      cursor: pointer; }
+
+@media screen and (max-width: 500px) {
+  .description p {
+    font-size: 14px; } }
+.proposal h2 {
+  margin: 8px 0px; }
+.proposal .description {
+  max-width: 600px;
+  padding: 5px 10px;
+  margin: 10px auto; }
+  .proposal .description p {
+    text-indent: 1em; }
+
+/*# sourceMappingURL=main.css.map */
