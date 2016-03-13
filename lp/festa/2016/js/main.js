@@ -1,4 +1,16 @@
 $(function(){
+  $('header li:not(:last-child)').click(function(){
+    name = $(this).attr('class');
+    position = $('section.'+name).offset().top;
+    $('html, body').animate({
+      scrollTop: position
+    }, 1000);
+  });
+
+  $('header .apply').click(function(){
+    location.href = "https://docs.google.com/forms/d/1c_JFipOlrgoLr641PkUhajknDoxMh54oFcWk_PO7UbM/viewform";
+  });
+
   $('.subject li').click(function(){
     var name = $(this).attr('class');
     $('.subject div.description:not(.'+name+')').slideUp();
@@ -32,3 +44,23 @@ $(function(){
     }, 1000);
   });
 });
+
+if(window.addEventListener) {
+  window.addEventListener( "load" , shareButtonReadSyncer, false );
+}else{
+  window.attachEvent( "onload", shareButtonReadSyncer );
+}
+
+/* シェアボタンを読み込む関数 */
+function shareButtonReadSyncer(){
+
+// Facebook
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+}
