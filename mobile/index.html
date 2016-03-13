@@ -1,0 +1,675 @@
+﻿<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloud.A: Learning Over Generation</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <meta property="og:title" content="Cloud.A WEB">
+  <meta property="og:description" content="Cloud.Aは「新しいことを知る」「価値観の異なる相手と議論する」ことに魅力を感じる人が集まる学術サークルです。2011年4月の設立以来、不定期で勉強会やイベントを開催し続けています。">
+  <meta property="og:image" content="http://cloud-academy.org/mobile/logo.png">
+  <meta property="og:url" content="http://cloud-academy.org/mobile/">
+  <meta property="og:type" content="non_profit">
+  <meta property="fb:admins" content="Cloudaworkshop">
+  <meta property="og:site_name" content="Cloud.A WEB">
+  <meta property="og:email" content="info@cloud-academy.org">
+
+<style>
+  * {
+    font-family: メイリオ;
+  }
+  .top_pic{
+    text-align: center;
+    margin: 0px;
+  }
+  .caption {
+    position: absolute;
+    top: 10px; left: 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    font-family: impact;
+    opacity: 0;
+    }
+  .caption:hover {
+    opacity: 1;
+  }
+  #caption {
+    color: #FFF
+  }
+  #notice {
+    color: #000
+  }
+  .discription {
+    margin-bottom: 15px;
+  }
+  .discription>li {
+    font-size: 12px;
+  }
+  .merit>p {
+    font-weight: bold;
+  }
+  .merit>li {
+    padding-top: 15px;
+    border-top: dashed 1px;
+  }
+  #merit-last {
+    padding-bottom: 15px;
+    border-bottom: dashed 1px;
+  }
+  .feature>li {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: solid 1px;
+  }
+  #event {
+    margin-bottom: 15px;
+  }
+  #home-image {
+    position: relative;
+    overflow: hidden;
+  }
+  #home-caption1 {
+    font-family: Arial Black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(0,0,0,.4);
+    font-weight: none;
+    font-size: 30px;
+    color: #FFF;
+    text-shadow: none;
+    text-align: center;
+  }
+  #home-caption2 {
+    font-family: Arial Black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(0,0,0,.4);
+    font-weight: none;
+    font-size: 30px;
+    color: #FFF;
+    text-shadow: none;
+    text-align: center;
+  }
+  #home-caption3 {
+    font-family: Arial Black;
+    position: absolute;
+    top: 20%;
+    left: -100%;
+    z-index: 2;
+    width: 100%;
+    height: 40px;
+    background: rgba(0,0,0,.4);
+    font-weight: none;
+    font-size: 25px;
+    color: #FFF;
+    text-shadow: none;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: .5s;
+    transition: .5s;
+    opacity: 0;
+  }
+  #home-image:hover #home-caption3 {
+    top: 20%;
+    left: 0;
+    opacity: 1;
+  }
+  #home-caption4 {
+    font-family: Arial Black;
+    position: absolute;
+    top: 60%;
+    right: -100%;
+    z-index: 2;
+    width: 100%;
+    height: 30px;
+    background: rgba(0,0,0,.4);
+    font-weight: none;
+    font-size: 20px;
+    color: #FFF;
+    text-shadow: none;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: .5s;
+    transition: .5s;
+    opacity: 0;
+  }
+  #home-image:hover #home-caption4 {
+    top: 60%;
+    right: 0;
+    opacity: 1;
+  }
+  .news_pic{
+    text-align: center;
+    margin: 0px;
+    max-width: 1024px;
+    width: 100%;
+  }
+  .news_pic>img {
+    border-radius: 10%;
+  }
+</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53453489-3', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body>
+<div data-role="page" id="home">
+  <div data-role="header" style="background: #FFF;">
+  <center><p id="home-image" style="max-width: 1024px;">
+  <img src="top.jpg" width="100%">
+  <span id="home-caption1">Cloud.A WEB</span>
+  <span id="home-caption2">Life is Learning.</span>
+  <span id="home-caption3">Knowledge is Power.</span>
+  <span id="home-caption4">Calamvs Gladio Fortior.</span></p></center>
+  </div>
+  <div data-role="content">
+  <h2>次回企画のお知らせ</h2>
+  <ul data-role="listview" style="margin-top: 15px;">
+    <li><a href="https://www.facebook.com/events/1171760976173837/" rel="external"><img src="news/150919ws-i.jpg"><h2>9/19 第33回勉強会</h2>
+      <p>本当の教育経済学を語ろう～社会問題の分析視点としての経済学</p></a></li>
+    <li><a href="https://www.facebook.com/events/863105807100476/" rel="external"><img src="news/150926ws-i.jpg"><h2>9/26 第34回勉強会</h2>
+      <p>歴史教育への批判を現役歴史教師にぶつける会</p></a></li>
+  </ul>
+  <h2>News</h2>
+  <ul data-role="listview">
+    <li>15.08.14
+      <p>「9/26 第34回勉強会」が開催決定しました！</p></li>
+    <li>15.08.02
+      <p>「9/19 第33回勉強会」が開催決定しました！</p></li>
+    <li>15.06.20
+      <p>「7/4 第32回勉強会」が開催決定しました！</p></li>
+    <li>15.05.31
+      <p>「<a href="#report">開催レポート</a>」を更新しました！</p></li>
+    <li>15.05.17
+      <p>「6/20 第31回勉強会」が開催決定しました！</p></li>
+    <li>15.04.29
+      <p>「5/30 第30回勉強会」が開催決定しました！</p></li>
+    <li>15.04.26
+      <p>「<a href="#interview">参加者インタビュー</a>」を更新しました！</p></li>
+    <li>15.04.19
+      <p>「5/16 第29回勉強会」が開催決定しました！</p></li>
+    <li>15.04.18
+      <p>「第1回 学問フェスタ」を開催しました！</p></li>
+    <li>15.03.29
+      <p>「<a href="http://blog.livedoor.jp/midwhite/archives/7864344.html" rel="external">第1回 学問フェスタ</a>」を開催します！</p></li>
+    <li>15.03.29
+      <p>「<a href="#interview">参加者インタビュー</a>」を更新しました！</p></li>
+    <li>15.03.25
+      <p>「<a href="#interview">参加者インタビュー</a>」を更新しました！</p></li>
+    <li>15.03.24
+      <p>「<a href="#interview">参加者インタビュー</a>」を更新しました！</p></li>
+    <li>15.03.16
+      <p>「<a href="#news">新歓花見のお知らせ</a>」を掲載しました！</p></li>
+    <li>15.03.16
+      <p>ホームページを公開しました！</p></li>
+  </ul>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="news">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>NEWS</h1>
+  </div>
+  <div data-role="content">
+  <h2>次回企画のお知らせ</h2>
+  <ul data-role="listview" style="margin-top: 15px;">
+    <li><a href="https://www.facebook.com/events/1416870808631971/" rel="external"><img src="news/150530ws-i.jpg"><h2>5/30 第30回勉強会</h2>
+      <p>グローバル化の中での言語教育について考える～言語を操るとはどういうことか？</p></a></li>
+    <li><a href="https://www.facebook.com/events/1590731871204443/" rel="external"><img src="news/150516ws-i.jpg"><h2>6/20 第31回勉強会</h2>
+      <p>松下村塾に学ぶ～現代の私塾の役割と可能性</p></a></li>
+  </ul>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="vision">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>VISION</h1>
+  </div>
+  <div data-role="content">
+  <h1>活動理念</h1>
+  <p>大学に入学する直前、自分が卒業後になりたい姿をどのように描いていましたか。僕は大学で普通に勉強していれば、歴史や文学、思想など幅広い教養を持ち、社会問題を自らの専門性を通して学術的視点から分析でき、さらに多様な価値観を持つ人とのディスカッションで自分の意見を主張できる、そんな人間として卒業していけるのかなと考えていました。そして、大学に行けば、同じ目的を持って共に勉強や議論をすることができる友人に多く出会えるだろうと期待していました。</p>
+  <p>しかし大学に入学後、大学の現実に直面します。「楽な単位の取り方を教えてあげるよ」と叫んで新入生をサークルの新歓飲み会に呼び込む上級生集団。大教室の講義で、最後部から埋まる席。「楽だから」という理由で応募が殺到して、科目に興味を持つ学生を落選させてしまう授業。試験期間だけ図書館に集まって騒ぐ学生。A4用紙2枚の卒業論文を提出して卒業したという伝説を嬉々として語る先輩。初めは持っていたはずの興味を効果的に失わせていく棒読み講義。極めつけは、試験直前だけ出席して、真面目に勉強していた学生からノートだけコピーさせてもらい試験をパスする者。とにかく僕は大学という場所の価値観に失望します。</p>
+  <p>入学前に思い描いていた理想と、目の前にある大学の現実とのギャップを、どう埋めるか。その鍵は、<strong>できるだけ早い段階で、「明らかに周りより勉強している先輩」に出会うこと</strong>にあると僕は思います。大学生の殆どは（恐らく9割くらいは）4年間を最高に楽しく遊んで過ごせれば良いや、くらいにしか思っていません。しかし、中には高い志を持って学術研究や学外活動にコミットする学生もいます。そのことに気付いてほしい。全ての学生が遊び呆けて過ごしているわけではない、一部には自分を理解してくれる人が必ずいる。そういった人が集まる場所に、できるだけ早く出会うこと。そういう場所を用意することが、Cloud.Aの設立目的です。</p>
+  <p>別に、真面目に勉強したいと思っている人たちが、大学生活の中で全てを投げ打って学問に集中しているわけではありません。もちろん僕らだって花見で酒を飲み、カラオケで歌を歌い、鍋パーティでは恋バナで盛り上がり、スキー旅行も企画します。でも、そんな楽しい日常に加えて、勉強や読書といった要素も大学生活の中で味わっていきたい。そういった価値観を共有できる人と一緒に過ごしたい。Cloud.Aは、そんな人が集まるサークルです。</p>
+  <p>僕らの理念は、<strong>大学や世代の枠を超えて、「新しいことを知る」「自分と異なる価値観を持つ人と意見をぶつけ合う」ことに魅力を感じる人が集まる場所を作ること。</strong>ここには大学生だけでなく、高校生や社会人が来たって良い。同じ価値観を共有し、学びたいという欲があるなら、誰でも参加できる。それも、ただ集まるだけでなく、勉強会という形式で、互いの専門性と価値観をぶつけ合える場所にしたい。</p>
+  <p>大学生にとっては、同じ価値観を共有できる仲間を見つけられる場所。また、自分と異なる大学や専攻分野の人と議論することで、様々な立場からの多角的な視点を得られる場所。その中で自分の専門性を高めるモチベーションを高め、さらに自分の寄って立つ価値観を見つけられる場所。</p>
+  <p>高校生にとっては、大学に進学する前に、各学部の具体的な勉強内容や大学の特色を知ることができる場所。また、少しだけ先を歩く先輩に進路の相談や、受験勉強のアドバイスがもらえる場所。さらには、他の学校に通っていて自分と似た興味分野を持つ高校生と出会える場所。</p>
+  <p>社会人にとっては、働きながら学び直したいと思ったことを、気軽に学び始められるきっかけが得られる場所。また、高校生や大学生と会って、初心を思い出すことができる場所。さらには、職場以外に、別の価値観を持つ仲間と会える場所。</p>
+  <p>Cloud.Aは、そんな場所を目指しています。この文章を読んでくれたあなたも、一度だけでも、勉強会に足を運んでみませんか？</p>
+  <p style="text-align: right;">≫<a href="#about">活動内容を詳しく知る</a></p>
+  <p style="text-align: right;">≫<a href="#participants">活動の参加方法を知る</a></p>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="about">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>ABOUT</h1>
+  </div>
+  <div data-role="content">
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+    <a href="#about" data-role="button">概要</a>
+    <a href="#participants" data-role="button">参加</a>
+    <a href="#presenter" data-role="button">発表</a>
+  </div>
+  <h1>Cloud.Aとは</h1>
+  <ul class="feature">
+    <li><strong>理念</strong></li>
+      <p>Cloud.Aは「新しいことを知る」「価値観の異なる相手と議論する」ことに魅力を感じる人が集まる学術サークルです。2011年4月の設立以来、不定期で勉強会やイベントを開催し続けています。</p>
+    <li><strong>勉強会</strong></li>
+      <p>異なる大学の学生だけでなく、高校生や社会人も参加することもあり、扱う分野も哲学や教育、経済など幅広い範囲をカバーしています。扱う問題について、単一ではなく複数の視点から論じることを理念としているため、メンバーの専攻分野もバラバラで、様々な専門分野の考え方に触れることができます。</p>
+    <li><strong>勉強会以外の活動</strong></li>
+      <p>また、勉強会だけでなくメンバー間で鍋パーティやバーベキュー、カラオケや年越し会なども企画・実施しています。Cloud.Aで活動していると自然と企画運営のノウハウが身に付くので、自分で新しい企画を発案して実現していくことができます。</p>
+    <li><strong>雰囲気</strong></li>
+      <p>全体として雰囲気が落ち着いているため、大学内のチャラい雰囲気が苦手で馴染めなかった人や、大学生活の中で遊んでばかりで「本当にこのままで良いのだろうか」と思った人なども居心地よく過ごせることが特徴です。また、他の大学生に比べて突出して勉強量の多い人や、学外で変わった活動をしている人も多く在籍しているので、話してみると刺激的なことも多くなっています。</p>
+  </ul>
+  <h1>Cloud.Aの特色</h1>
+  <ul class="feature">
+    <li><strong>教養と学際性を重視！</strong></li>
+    <p>大学内のサークルは、「法律」「会計」「経済」といった特定の領域に限定した団体や、実務資格の取得を目指す団体が多く、あるテーマについて多角的な分野を総動員して論じようとするサークルは少なくなっています。Cloud.Aは、例えば教育問題を語るに当たっても歴史や哲学や経済の視点を取り入れながら発表するなど、複数の専門性から同時に同じテーマを眺める姿勢を重視しています。</p>
+    <li><strong>対話を重視！</strong></li>
+    <p>ディスカッション系のサークルには、担当者が一方的に発表し、それに対して質疑応答を繰り返すだけといった形式が多くなってます。しかしCloud.Aでは、参加者を4人前後の班に分けた少人数制のディスカッションと、各班の発表に基づく議論の時間を必ず設けています。参加者は自分の意見を言ったり、他社の意見を聞いたりする機会を必ず得られます。</p>
+    <li><strong>気軽さを重視！</strong></li>
+    <p>強制力の強いサークルには、勉強会や総会への参加を義務付けているところも多くあります。しかしCloud.Aでは、そういった高校の部活のような慣習は一掃し、自分の興味がある勉強会やイベントのみに参加すれば良いという自由参加制を採用しています。勉強会やイベントも1回完結型が多いので、自分の都合がつく回だけ参加することが可能です。</p>
+    <li><strong>発表に挑戦したい人へのフォロー体制が充実！</strong></li>
+    <p>勉強会での発表に挑戦してみたい人には、運営チームが発表テーマの設定から発表内容の構成、集客活動や事後フォローまでをトータルでサポートします。そのため、過去には大学1年生や高校生が発表を担当したこともあるほど、初めて人前でプレゼンテーションをするという人にも安心のフォロー体制があります。</p>
+    <li><strong>参加者が魅力的！</strong></li>
+    <p>Cloud.Aに集まる参加者は、学外のボランティア活動やディスカッションイベントなど多種多様な活動に関わる学生や、自らの経験に基づく問題意識を持って専門性を高めている大学院生など、個性的で魅力的な参加者が集まります。ここで知り合いを増やすと、後で色々な他のイベントや活動に誘ってもらえるかも？</p>
+    <li><strong>高校生や社会人も参加可能！</strong></li>
+    <p>一般的な大学内のサークルは、その大学に在籍する学生しか所属していないことも多くあります。しかしCloud.Aでは他学部・他大学の学生のみならず、高校生や社会人まで参加が可能なので、ディスカッション系サークルの中でも多様性の幅は類を見ません。毎回「こんな人もいるんだ！」と新しい発見に満ちた出会いが用意されています。</p>
+  </ul>
+  <p style="text-align: right;">≫<a href="#report">過去の活動実績を見る</a></p>
+  <p style="text-align: right;">≫<a href="#join">活動の参加方法を知る</a></p>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="participants">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>ABOUT</h1>
+  </div>
+  <div data-role="content">
+  <div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+    <a href="#about" data-role="button">概要</a>
+    <a href="#participants" data-role="button">参加</a>
+    <a href="#presenter" data-role="button">発表</a>
+  </div>
+  <h1>参加の流れ</h1>
+  <p class="discription">このページでは、参加者視点から見たCloud.Aの普段の活動をご紹介します。</p>
+  <ul data-role="listview" style="margin-top: 15px;">
+    <li><img src="participants/1.jpg">メンバーズLINEに登録する
+      <p>勉強会やイベントの開催情報を共有するLINEグループに招待します！</p>
+      <p>※LINE以外の連絡方法を希望する方は個別にご相談ください。</p></li>
+    <li><img src="participants/2.jpg">勉強会やイベントの開催情報が届く
+      <p>企画の開催が決まり次第、担当者がLINEに情報を流します！</p></li>
+    <li><img src="participants/3.jpg">興味があれば参加する
+      <p>内容に興味があり、日程が空いていれば是非お気軽にご参加ください！</p></li>
+  </ul>
+  <p style="text-align: right; margin-top: 20px;">≫<a href="#new">直近の活動予定を見る</a></p>
+  <p style="text-align: right;">≫<a href="#join">活動に参加する</a></p>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="presenter">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>ABOUT</h1>
+  </div>
+  <div data-role="content">
+  <div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+    <a href="#about" data-role="button">概要</a>
+    <a href="#participants" data-role="button">参加</a>
+    <a href="#presenter" data-role="button">発表</a>
+  </div>
+  <h1>発表の流れ</h1>
+    <p class="discription">このページでは、発表者視点で見たCloud.Aの普段の活動をご紹介します。</p>
+    <div width="100%" style="max-width: 960px; background: #FFF; border-radius: 20px;">
+      <h2 style="margin-left: 10px; padding-top: 10px;">初心者サポート</h2>
+      <p>発表に慣れていない方が発表に挑戦する際は、Cloud.A運営チームが下記の流れをトータルサポートします！文献の探し方や発表のまとめ方、プレゼンの作り方や運営の進捗管理などを常に相談しながら進めていくことができ、納得のいく企画を作れます。自分に自信が無くても、人前で自分の考えを言えるようになりたいと思う人であれば、安心して挑戦してみてください！</p>
+    </div>
+    <ul data-role="listview" style="margin-top: 15px;">
+      <li class="onmouse"><img src="about/1.jpg"><h2>≫企画立案</h2>
+      <p class="discription">発表してみたいテーマや興味のある問題が見つかったら、運営チームに相談してみる。</p></li>
+      <li class="onmouse"><img src="about/2.jpg"><h2>≫実施決定</h2>
+      <p class="discription">イベント日程と会場を決め、発表内容のアウトラインを作成し、会員に告知する。</p></li>
+      <li class="onmouse"><img src="about/3.jpg"><h2>≫発表準備</h2>
+        <ul class="discription">
+          <li>書籍や論文を読む。</li>
+          <li>得られた情報を整理する。</li>
+          <li>結論と根拠を構成する。</li>
+          <li>発表資料を作成する。</li>
+          <li>ディスカッションテーマを設定する。</li>
+        </ul>
+      </li>
+      <li class="onmouse"><img src="about/4.jpg"><h2>≫広報活動</h2>
+      <p class="discription">勉強会の参加者を集める。どのツールを、どのタイミングで、どのような表現で使えば効果的か考えながら進める。</p></li>
+      <li class="onmouse"><img src="about/5.jpg"><h2>≫運営準備</h2>
+        <ul class="discription">
+          <li>タイムスケジュール作成</li>
+          <li>アンケート作成</li>
+          <li>予約者管理</li>
+          <li>事前リマインドメール送信</li>
+        </ul>
+      </li>
+      <li class="onmouse"><img src="about/6.png"><h2>≫本番当日</h2>
+        <ul class="discription">
+          <li>買い出し</li>
+          <li>参加者の迎え入れ</li>
+          <li>アイスブレイク</li>
+          <li>発表</li>
+          <li>ディスカッション</li>
+          <li>懇親会</li>
+        </ul>
+      </li>
+      <li class="onmouse"><img src="about/7.jpg"><h2>≫事後処理</h2>
+        <ul class="discription">
+          <li>アンケート集計</li>
+          <li>レポート作成</li>
+          <li>お礼メール</li>
+          <li>ホームページ更新</li>
+        </ul>
+      </li>
+    </ul>
+  <h1>活動の魅力</h1>
+  <ul class="merit">
+    <li>小規模ながら、発案から企画運営までをトータルで何度も経験できる。</li>
+      <p>→自分で思いついた企画を自分で実現できる力が身につく！</p>
+    <li>多人数の前での発表や議論を経験できる。</li>
+      <p>→何度か繰り返せば、基本的なプレゼンテーションをソツなくこなせるように！</p>
+    <li>参加者のニーズと自分の強みをすり合わせながら一つの作品としての勉強会を作ることを経験できる。</li>
+      <p>→企業で言うところの商品企画やマーケティングの視点が身につく！</p>
+    <li>データのリサーチから自分の主張を考え、発表資料を作成するまで、終始一貫して経験できる。</li>
+      <p id="merit-last">→自分の言いたいことをまとめて、効果的に伝える力が身につく！</p>
+  </ul>
+  <p style="text-align: right;">≫<a href="#participants">活動の参加方法を知る</a></p>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="interview">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>INTERVIEW</h1>
+  </div>
+  <div data-role="content">
+  <h1>参加者の声</h1>
+  <p>過去にCloud.A勉強会に参加した方のインタビュー記事を掲載しています。</p>
+  <ul data-role="listview" data-filter="true">
+    <li class="ui-li-has-thumb"><a data-ajax="false" href="interview.html#001"><img src="interview/001i.jpg">
+      <h2>001 早稲田大学政治経済学部国際政治経済学科</h2>
+      <p>[政治][経済][数学][哲学]</p></a></li>
+    <li class="ui-li-has-thumb"><a data-ajax="false" href="interview.html#002"><img src="interview/002i.jpg">
+      <h2>002 昭和女子大学人間文化学部日本文学科</h2>
+      <p>[教育][言語]</p></a></li>
+    <li class="ui-li-has-thumb"><a data-ajax="false" href="interview.html#003"><img src="interview/003i.jpg">
+      <h2>003 早稲田大学社会科学部</h2>
+      <p>[経済][歴史][教育]</p></a></li>
+    <li class="ui-li-has-thumb"><a data-ajax="false" href="interview.html#004"><img src="interview/004i.jpg">
+      <h2>004 Trent University International Development Studies / Media Studies</h2>
+      <p>[社会][教育]</p></a></li>
+  </ul>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="report">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>REPORT</h1>
+  </div>
+  <div data-role="content">
+  <div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+    <a href="#report" data-role="button">勉強会</a>
+    <a href="#event" data-role="button">その他</a>
+  </div>
+
+  <h1>過去の活動実績</h1>
+  <p class="discription">過去に開催した勉強会のレポートを掲載しています。</p>
+
+    <ul data-role="listview" data-filter="true">
+      <li><a href="https://www.facebook.com/events/863105807100476/" rel="external">034 歴史教育への批判を現役歴史教師にぶつける会 [歴史][教育]</a></li>
+      <li><a href="https://www.facebook.com/events/1171760976173837/" rel="external">033 本当の教育経済学を語ろう～社会問題の分析視点としての経済学 [経済][社会][教育]</a></li>
+      <li><a href="" rel="external">032 21世紀の働き方を考える [経済][社会]</a></li>
+      <li><a href="" rel="external">031 松下村塾に学ぶ～現代の私塾の役割と可能性 [教育][歴史]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/7966419.html" rel="external" target="_blank">030 グローバル時代の言語教育を考える～言語を操るとはどういうことか？ [言語][教育]</a></li>
+      <li><a href="" rel="external">029 教育と多様性・メディアについて考える [教育][経済][社会]</a></li>
+      <li><a href="" rel="external">028 第1回 学問フェスタ [政治][経済][社会][言語][歴史][哲学][生物]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/7792743.html" rel="external" target="_blank">027 女性の社会進出を考える [経済]</a></li>
+      <li><a href="" rel="external">026 年の瀬に、この国の未来を考える。 [政治]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/7685787.html" rel="external" target="_blank">025 ソーシャルビジネスと公共性 [哲学][経済]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/7542702.html" rel="external" target="_blank">024 日本は美しい国か [歴史][経済]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/7542668.html" rel="external" target="_blank">023 僕らはグローバル化の先にどんな社会を選択するのか [経済]</a></li>
+      <li><a href="" rel="external">022 僕らの政治参加の方法 [政治]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/7234440.html" rel="external" target="_blank">021 「学ぶ」と「働く」を考える～僕らにとって「豊かな学び」とは [哲学]</a></li>
+      <li><a href="" rel="external">020 20年後の日本を考える [政治][経済][教育]</a></li>
+      <li><a href="" rel="external">019 学校は何のためにあるのか [教育]</a></li>
+      <li><a href="" rel="external">018 第2回 哲学総選挙～西洋哲学vs東洋哲学 [哲学]</a></li>
+      <li><a href="" rel="external">017 学校制度は必要か [哲学][教育]</a></li>
+      <li><a href="" rel="external">016 現象学と反実在思考～議論をリードする哲学 [哲学]</a></li>
+      <li><a href="" rel="external">015 ジャーナリズムと情報操作～プロパガンダがもたらす利益と流血 [政治]</a></li>
+      <li><a href="" rel="external">014 第1回 哲学総選挙～西洋哲学vs東洋哲学 [哲学]</a></li>
+      <li><a href="" rel="external">013 教育格差～学校にできること、できないこと [教育]</a></li>
+      <li><a href="" rel="external">012 教養とは何か～大学教養課程の意義を考える [教育]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/5277139.html" rel="external" target="_blank">011 資本主義とは何か～人間の幸福を確保する社会システム論 [哲学][経済]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/5222605.html" rel="external" target="_blank">010 実践的哲学～議論の名手になるには [哲学]</a></li>
+      <li><a href="" rel="external">009 TPPについて考える [経済]</a></li>
+      <li><a href="" rel="external">008 思想としての経済学～資本主義とグローバリズム [哲学][経済]</a></li>
+      <li><a href="" rel="external">007 経済ニュースを読み解く！経済リテラシーワークショップ [経済]</a></li>
+      <li><a href="" rel="external">006 学校制度は本当に必要か [哲学][教育]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/3886989.html" rel="external" target="_blank">005 よく聞く哲学者たち [哲学]</a></li>
+      <li><a href="" rel="external">004 食品偽装問題からCSRを考える [経済][法律]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/3262597.html" rel="external" target="_blank">003 水資源を巡る環境問題とビジネスアプローチ [経済]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/3172978.html" rel="external" target="_blank">002 経済学的視点を身に付ける [経済]</a></li>
+      <li><a href="http://blog.livedoor.jp/midwhite/archives/2900440.html" rel="external" target="_blank">001 大学って何のためにあるの？ [教育]</a></li>
+    </ul>
+  
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="event">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>REPORT</h1>
+  </div>
+  <div data-role="content">
+  <div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+    <a href="#report" data-role="button">勉強会</a>
+    <a href="#event" data-role="button">その他</a>
+  </div>
+  <h1>その他イベント</h1>
+  <p>Cloud.Aでは、勉強会以外にも有志が企画した様々なイベントを行っています。</p>
+  <ul data-role="listview" id="event">
+    <li><a href="#event1508" data-rel="popup" data-position-to="window"><img src="event/1508i.jpg">[2015.08]　バーベキュー＆花火
+      <p>多摩川でバーベキューと花火を行いました！</p></a></li>
+        <div data-role="popup" id="event1508"><img src="event/1508.jpg"></div>
+    <li><a href="#event1506" data-rel="popup" data-position-to="window"><img src="event/1506i.jpg">[2015.06]　WEBデザイン勉強会
+      <p>HTML/CSS/jQueryの勉強会を実施しました！</p></a></li>
+        <div data-role="popup" id="event1506"><img src="event/1506.jpg"></div>
+    <li><a href="#event1505" data-rel="popup" data-position-to="window"><img src="event/1505i.jpg">[2015.05]　教育フォーラム見学
+      <p>東京大学五月祭「教育フォーラム」を見学しました！</p></a></li>
+        <div data-role="popup" id="event1505"><img src="event/1505.png"></div>
+    <li><a href="#event1504" data-rel="popup" data-position-to="window"><img src="event/1404i.jpg">[2015.04]　花見
+      <p>代々木公園で花見をしたかった！</p></a></li>
+        <div data-role="popup" id="event1504"><img src="event/1504.jpg"></div>
+    <li><a href="#event1503" data-rel="popup" data-position-to="window"><img src="event/1503i.jpg">[2014.03]　スキー旅行
+      <p>蔵王へスキー旅行に行きました！</p></a></li>
+        <div data-role="popup" id="event1503"><img src="event/1503.jpg"></div>
+    <li><a href="#event1502" data-rel="popup" data-position-to="window"><img src="event/1502i.jpg">[2015.02]　料理教室
+      <p>バレンタイン前に料理教室を開きました！</p></a></li>
+        <div data-role="popup" id="event1502"><img src="event/1502.jpg"></div>
+    <li><a href="#event1501" data-rel="popup" data-position-to="window"><img src="event/1501i.jpg">[2015.01]　年越し会
+      <p>年越し＆初詣で浅草寺へ行きました！</p></a></li>
+        <div data-role="popup" id="event1501"><img src="event/1501.jpg"></div>
+    <li><a href="#event1412" data-rel="popup" data-position-to="window"><img src="event/1412i.jpg">[2014.12]　鍋パーティ
+      <p>代表の家で鍋パーティを行いました！</p></a></li>
+        <div data-role="popup" id="event1412"><img src="event/1412.jpg"></div>
+    <li><a href="#event1411" data-rel="popup" data-position-to="window"><img src="event/1411i.jpg">[2014.11]　教育ボランティア
+      <p>高校生と将来などについて語るボランティアに参加しました！</p></a></li>
+        <div data-role="popup" id="event1411"><img src="event/1411.jpg"></div>
+    <li><a href="#event1409" data-rel="popup" data-position-to="window"><img src="event/1409i.jpg">[2014.09]　フットサル大会
+      <p>宮下公園でフットサル大会を行いました！</p></a></li>
+        <div data-role="popup" id="event1409"><img src="event/1409.jpg"></div>
+    <li><a href="#event1408" data-rel="popup" data-position-to="window"><img src="event/1408i.jpg">[2014.08]　バーベキュー
+      <p>二子玉川でバーベキューを行いました！</p></a></li>
+        <div data-role="popup" id="event1408"><img src="event/1408.jpg"></div>
+    <li><a href="#event1406" data-rel="popup" data-position-to="window"><img src="event/1406i.jpg">[2014.06]　社会科見学
+      <p>古代オリエント博物館に行きました！</p></a></li>
+        <div data-role="popup" id="event1406"><img src="event/1406.jpg"></div>
+    <li><a href="#event1404" data-rel="popup" data-position-to="window"><img src="event/1404i.jpg">[2014.04]　花見
+      <p>代々木公園で花見をしました！</p></a></li>
+        <div data-role="popup" id="event1404"><img src="event/1404.jpg"></div>
+  </ul>
+  <p style="text-align: right; font-size: 9px;">※本ページには制作者の願望が含まれています</p>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="join">
+  <div data-role="header" style="background: #FFF;">
+  <a href="#home" data-icon="home" data-theme="b">　</a>
+  <h1>JOIN</h1>
+  </div>
+  <div data-role="content" style="text-align: center;">
+    <iframe src="https://docs.google.com/forms/d/1_8eS9vlvz-P5t-bLdjvQG0VZ3V-aS7ZgsBMO4ckZP8g/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  </div>
+  <div data-role="footer" style="background: #FFF;" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#news" data-transition="slidedown">NEWS</a></li>
+      <li><a href="#vision" data-transition="slide">VISION</a></li>
+      <li><a href="#about" data-transition="pop">ABOUT</a></li>
+      <li><a href="#interview" data-transition="slidefade">INTERVIEW</a></li>
+      <li><a href="#report">REPORT</a></li>
+      <li><a href="#join" data-transition="slideup">JOIN</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

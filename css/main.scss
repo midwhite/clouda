@@ -1,0 +1,248 @@
+a {
+  color: #2196F3;
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 2px 0px;
+  background: #2196F3;
+  box-shadow: 0px 2px 5px rgba(0,0,0,.5);
+  z-index: 3;
+  .title {
+    width: 150px;
+    float: left;
+    text-align: center;
+    p {
+      a {
+        color: #FFF;
+        display: block;
+      }
+      &:first-child {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 26px;
+      }
+      &:last-child {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+  }
+  #menu-btn {
+    width: 98px;
+    float: right;
+    padding: 2px 0px;
+    margin: 3px 5px;
+    border: 1px solid #FFF;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+    &:hover {
+      background: #1E88E5;
+      cursor: pointer;
+    }
+  }
+  .menu {
+    position: absolute;
+    top: 0px;
+    right: -150px;
+    width: 150px;
+    background: #1E88E5;
+    color: #FFF;
+    box-shadow: -2px 2px 5px rgba(0,0,0,.5);
+    li {
+      width: 150px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      a {
+        padding: 7px 0px;
+        border-top: 1px solid #1E88E5;
+        border-bottom: 1px solid #FFF;
+        color: #FFF;
+        display: block;
+        &:hover {
+          background: #1976D2;
+        }
+      }
+    }
+  }
+}
+
+#container {
+  margin-top: 46px;
+}
+
+.top-index {
+  .firstview {
+    img {
+      width: 100%;
+      display: block;
+    }
+    h1 {
+        background: #2196F3;
+        color: #FFF;
+        font-weight: bold;
+        font-size: 32px;
+        text-align: center;
+        text-shadow: 2px 2px 1px rgba(0,0,0,.5);
+        box-shadow: 0px 2px 1px rgba(0,0,0,.5);
+    }
+  }
+  .notifications {
+    width: 300px;
+    float: left;
+    h2 {
+      margin: 5px 0px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .notification {
+      width: 280px;
+      padding-bottom: 15px;
+      margin: 0px 10px;
+      margin-bottom: 15px;
+      background: #EEEEEE;
+      box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+      img {
+        width: 100%;
+        display: block;
+      }
+      p {
+        text-align: center;
+        line-height: 20px;
+      }
+      .category {
+        width: 240px;
+        margin: 0px auto;
+        border-top: 1px dashed #3e3e3e;
+        font-style: italic;
+      }
+      .date {
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 24px;
+      }
+    }
+  }
+  .history {
+    height: 400px;
+    padding: 10px;
+    margin-left: 300px;
+    overflow-y: scroll;
+    ul {
+      li {
+        width: 23%;
+        float: left;
+        margin: 1%;
+        text-align: center;
+        box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+        &:hover {
+          cursor: pointer;
+        }
+        &.all {
+          background: #EEEEEE;
+        }
+        &.open {
+          background: #43A047;
+          color: #FFF;
+        }
+        &.report {
+          background: #EF6C00;
+          color: #FFF;
+        }
+        &.notice {
+          background: #3F51B5;
+          color: #FFF;
+        }
+      }
+    }
+    table {
+      width: 98%;
+      margin: 0px 1%;
+      tr {
+        th, td {
+          border-bottom: 3px solid #FFF;
+        }
+        th {
+          width: 80px;
+          padding: 10px;
+          border-right: 4px solid #FFF;
+          text-align: center;
+          p {
+            &:first-child {
+              font-size: 14px;
+              line-height: 16px;
+            }
+            &:last-child {
+              font-size: 20px;
+              line-height: 22px;
+            }
+          }
+        }
+        td {
+          text-indent: 1em;
+        }
+        &.open {
+          th {
+            background: #43A047;
+            color: #FFF;
+          }
+          td {
+            background: #E8F5E9;
+          }
+        }
+        &.report {
+          th {
+            background: #EF6C00;
+            color: #FFF;
+          }
+          td {
+            background: #FFF3E0;
+          }
+        }
+        &.notice {
+          th {
+            background: #3F51B5;
+            color: #FFF;
+          }
+          td {
+            background: #E8EAF6;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .top-index {
+    .firstview {
+      h1 {
+        font-size: 22px;
+      }
+    }
+  }
+}
