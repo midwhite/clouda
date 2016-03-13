@@ -108,8 +108,6 @@ header {
     }
   }
   .notifications {
-    width: 300px;
-    float: left;
     h2 {
       margin: 5px 0px;
       font-size: 24px;
@@ -117,9 +115,7 @@ header {
       text-align: center;
     }
     .notification {
-      width: 280px;
       padding-bottom: 15px;
-      margin: 0px 10px;
       margin-bottom: 15px;
       background: #EEEEEE;
       box-shadow: 1px 1px 1px rgba(0,0,0,.5);
@@ -148,9 +144,7 @@ header {
     }
   }
   .history {
-    height: 400px;
     padding: 10px;
-    margin-left: 300px;
     overflow-y: scroll;
     ul {
       li {
@@ -185,9 +179,11 @@ header {
       tr {
         th, td {
           border-bottom: 3px solid #FFF;
+          a {
+            font-weight: bold;
+          }
         }
         th {
-          width: 80px;
           padding: 10px;
           border-right: 4px solid #FFF;
           text-align: center;
@@ -201,9 +197,6 @@ header {
               line-height: 22px;
             }
           }
-        }
-        td {
-          text-indent: 1em;
         }
         &.open {
           th {
@@ -231,6 +224,98 @@ header {
           td {
             background: #E8EAF6;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 681px) {
+  .top-index {
+    .notifications {
+      width: 300px;
+      float: left;
+      .notification {
+        width: 280px;
+        margin: 0px 10px;
+      }
+    }
+  }
+
+  .history {
+    height: 400px;
+    padding: 10px;
+    margin-left: 300px;
+    overflow-y: scroll;
+    ul {
+      li {
+        width: 23%;
+        float: left;
+        margin: 1%;
+        text-align: center;
+        box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+      }
+    }
+    table {
+      width: 98%;
+      margin: 0px 1%;
+      tr {
+        th, td {
+          border-bottom: 3px solid #FFF;
+        }
+        th {
+          width: 80px;
+          padding: 10px;
+          border-right: 4px solid #FFF;
+          text-align: center;
+          p {
+            &:first-child {
+              font-size: 14px;
+              line-height: 16px;
+            }
+            &:last-child {
+              font-size: 20px;
+              line-height: 22px;
+            }
+          }
+        }
+        td {
+          text-indent: 1em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .top-index {
+    .notifications {
+      width: 100%;
+      clear: both;
+      .notification {
+        max-width: 400px;
+        width: 90%;
+        margin: 0px auto;
+      }
+    }
+    .history {
+      max-width: 400px;
+      width: 90%;
+      height: 200px;
+      margin: 0px auto;
+      .history-category {
+        li {
+          font-size: 14px;
+        }
+      }
+      table {
+        margin-top: 3px;
+        th {
+          width: 50px;
+        }
+        td {
+          text-indent: 10px;
+          font-size: 14px;
         }
       }
     }
