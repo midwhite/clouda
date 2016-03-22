@@ -10,7 +10,7 @@ function header(rootPath){
   html +=   '<ul class="menu">'
   html +=     '<li><a href="'+rootPath+'">TOP</a></li>'
   html +=     '<li><a href="'+rootPath+'vision.html">設立目的</a></li>'
-  html +=     '<li><a href="'+rootPath+'about.html">団体概要</a></li>'
+  html +=     '<li><a href="'+rootPath+'about.html">団体情報</a></li>'
   html +=     '<li><a href="'+rootPath+'report.html">活動報告</a></li>'
   html +=     '<li><a href="'+rootPath+'interview.html">メンバー</a></li>'
   html +=     '<li><a href="'+rootPath+'contact.html">問い合わせ</a></li>'

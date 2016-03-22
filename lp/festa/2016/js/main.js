@@ -1,14 +1,16 @@
 $(function(){
-  $('header li:not(:last-child)').click(function(){
+  $('header li').click(function(){
     name = $(this).attr('class');
-    position = $('section.'+name).offset().top;
-    $('html, body').animate({
-      scrollTop: position
-    }, 1000);
-  });
-
-  $('header .apply').click(function(){
-    location.href = "https://docs.google.com/forms/d/1c_JFipOlrgoLr641PkUhajknDoxMh54oFcWk_PO7UbM/viewform";
+    if (name == 'apply'){
+      location.href = "https://docs.google.com/forms/d/1c_JFipOlrgoLr641PkUhajknDoxMh54oFcWk_PO7UbM/viewform";
+    } else if(name == 'home'){
+      location.href = "http://www.cloud-academy.org/mobile/";
+    } else {
+      position = $('section.'+name).offset().top;
+      $('html, body').animate({
+        scrollTop: position
+      }, 1000);
+    }
   });
 
   $('.subject li').click(function(){

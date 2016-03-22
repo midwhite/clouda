@@ -61,7 +61,7 @@ header {
     }
   }
   .menu {
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: -150px;
     width: 150px;
@@ -329,5 +329,57 @@ header {
         font-size: 22px;
       }
     }
+  }
+}
+
+.vision {
+  padding: 10px;
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  p {
+    margin: 5px 0px;
+    text-indent: 1em;
+  }
+}
+
+.top-about {
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 3px double #FFF;
+    background: #2196F3;
+    color: #FFF;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .about-menu {
+    li {
+      width: 25%;
+      float: left;
+      border-radius: 15px 15px 0px 0px;
+      background: #2196F3;
+      color: #FFF;
+      text-align: center;
+      &:hover {
+        background: #1976D2;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+footer {
+  p {
+    text-align: center;
   }
 }
