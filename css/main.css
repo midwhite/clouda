@@ -244,12 +244,20 @@ header {
   font-size: 24px;
   font-weight: bold;
   padding: 10px;
+  margin-bottom: 5px;
   border-bottom: 3px double #FFF;
   background: #2196F3;
-  color: #FFF; }
+  color: #FFF;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5); }
 .top-about h3 {
+  width: 200px;
+  padding: 2px;
+  margin: 2px;
+  border: 1px solid #3e3e3e;
   font-size: 18px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
 .top-about .about-menu li {
   width: 25%;
   float: left;
@@ -260,6 +268,16 @@ header {
   .top-about .about-menu li:hover {
     background: #1976D2;
     cursor: pointer; }
+.top-about .about-content .subtitle {
+  margin: 5px;
+  font-weight: bold; }
+.top-about .about-content p {
+  padding: 0px 5px;
+  text-indent: 1em; }
+.top-about .about-content > div {
+  display: none; }
+  .top-about .about-content > div:first-child {
+    display: block; }
 
 footer p {
   text-align: center; }

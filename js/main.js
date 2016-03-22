@@ -37,4 +37,11 @@ $(function(){
       $('.history table tr.'+name).show();
     }
   });
+
+  // 団体情報のスライドダウン
+  $('.top-about .about-menu li').click(function(){
+    var name = $(this).attr('class');
+    $('div.about-content > div:not(.'+name+')').slideUp(1000);
+    $('div.about-content > div.'+name).slideDown(1000);
+  });
 });
