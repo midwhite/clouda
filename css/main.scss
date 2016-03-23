@@ -402,6 +402,50 @@ header {
   }
 }
 
+.top-report {
+  h1 {
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .reports-list {
+    li {
+      padding: 5px;
+      border-top: 1px solid #BBDEFB;
+      background: #E3F2FD;
+      box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+      position: relative;
+      &:last-child {
+        border-bottom: 1px solid #BBDEFB;
+      }
+      .number {
+        font-style: italic;
+        text-decoration: underline;
+      }
+      h2 {
+        margin: 0px .5em;
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      .detail-btn {
+        position: absolute;
+        bottom: 3px;
+        right: 5px;
+        width: 100px;
+        padding: 3px 0px;
+        border: 1px solid #FFEE58;
+        background: #FFF;
+        text-align: center;
+        box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+        display: block;
+        &:hover {
+          background: #FFF176;
+        }
+      }
+    }
+  }
+}
+
 footer {
   p {
     text-align: center;
