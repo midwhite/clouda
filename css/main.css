@@ -291,6 +291,10 @@ header {
   position: relative; }
   .top-report .reports-list li:last-child {
     border-bottom: 1px solid #BBDEFB; }
+  .top-report .reports-list li:hover {
+    background: #BBDEFB; }
+    .top-report .reports-list li:hover a {
+      color: #1565C0; }
   .top-report .reports-list li .number {
     font-style: italic;
     text-decoration: underline; }
@@ -303,7 +307,7 @@ header {
     bottom: 3px;
     right: 5px;
     width: 100px;
-    padding: 3px 0px;
+    padding: 2px 0px;
     border: 1px solid #FFEE58;
     background: #FFF;
     text-align: center;
