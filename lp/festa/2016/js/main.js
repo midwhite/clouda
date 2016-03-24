@@ -50,12 +50,12 @@ $(function(){
     history: {
       theme: 'Coming Soon!',
       detail: 'Coming Soon!',
-      profile: '早稲田大学社会科学科4年'
+      profile: '早稲田大学社会科学科4年。専攻は金融論だが、歩く歴史辞書。また「知を探求する塾」の熱血講師という一面も持つ。'
     },
     economics: {
       theme: 'Coming Soon!',
       detail: 'Coming Soon!',
-      profile: '慶應義塾大学商学部'
+      profile: '慶應義塾大学商学部。労働経済学を専攻する他、教育社会学や科学哲学も得意。「働きたくないでござる」と願い続けた結果、人類が労働から解放されるための経済システムを実現する方法について研究を始める。'
     },
     education: {
       theme: 'Coming Soon!',
@@ -65,7 +65,7 @@ $(function(){
     medicine: {
       theme: 'Coming Soon!',
       detail: 'Coming Soon!',
-      profile: '明治薬科大学3年　医療ビジネスコンテスト<a href="https://www.facebook.com/medicalfuturefes" target="_blank">medical future fes2016</a>の会計役を務めています。'
+      profile: '明治薬科大学3年。医療ビジネスコンテスト<a href="https://www.facebook.com/medicalfuturefes" target="_blank">medical future fes2016</a>の会計役を務めています。'
     },
     biology: {
       theme: 'Coming Soon!',
