@@ -27,7 +27,7 @@ var db_report = [
   {id: '026', date: '2014.12.31', title: '年の瀬に、この国の未来を考える。', url: '', doc: ''},
   {id: '027', date: '2015.02.07', title: '女性の社会進出を考える', url: '', doc: 'http://blog.livedoor.jp/midwhite/archives/7792743.html'},
   {id: '028', date: '2015.04.18', title: '第1回 学問フェスタ', url: 'http://blog.livedoor.jp/midwhite/archives/7864344.html', doc: ''},
-  {id: '029', date: '201', title: '教育と多様性・メディアについて考える', url: '', doc: ''},
+  {id: '029', date: '2015.05.16', title: '教育と多様性・メディアについて考える', url: '', doc: ''},
   {id: '030', date: '2015.05.30', title: 'グローバル時代の言語教育を考える：言語を操るとはどういうことか？', url: '', doc: 'http://blog.livedoor.jp/midwhite/archives/7966419.html'},
   {id: '031', date: '2015.06.20', title: '松下村塾に学ぶ：現代の私塾の役割と可能性', url: '', doc: 'http://blog.livedoor.jp/midwhite/archives/8182327.html'},
   {id: '032', date: '2015.07.04', title: '21世紀の働き方を考える', url: '', doc: ''},
@@ -36,7 +36,7 @@ var db_report = [
   {id: '035', date: '2015.10.31', title: '教育機会の多様性について語ろう', url: '', doc: ''},
   {id: '036', date: '2015.11.07-08', title: '学園祭出張ワークショップ「Seven Problems」', url: 'http://www.cloud-academy.org/lp/kiin/', doc: ''},
   {id: '037', date: '2015.11.14', title: '日本の格差をガッツリ経済学で捉える会', url: '', doc: 'https://docs.google.com/presentation/d/199XeZvgqoB4dfdQTatCp9CJC_taod6sCx5sx1hJnhbo/edit'},
-  {id: '038', date: '2016.04.10', title: '第2回 学問フェスタ', url: '', doc: ''}
+  {id: '038', date: '2016.04.10', title: '第2回 学問フェスタ', url: 'http://www.cloud-academy.org/lp/festa/2016/', doc: ''}
 ];
 
 
@@ -45,10 +45,14 @@ $(function(){
     var html_report = '';
     html_report += '<li>';
     html_report += '  <p class="number">Cloud.A Workshop #'+db_report[i]['id']+'</p>';
-    html_report += '  <h2><a href="'+db_report[i]['url']+'" target="_blank">'+db_report[i]['title']+'</a></h2>';
+    if (db_report[i]['url']){
+      html_report += '  <h2><a href="'+db_report[i]['url']+'" target="_blank">'+db_report[i]['title']+'</a></h2>';
+    } else {
+      html_report += '  <h2>'+db_report[i]['title']+'</h2>';
+    }
     html_report += '  <p class="date">'+db_report[i]['date']+'</p>';
-    if(db_report[i]['doc']){
-      html_report += '  <a href="'+db_report[i]['url']+'" title="Cloud.A Workshop「'+db_report[i]['title']+'」" target="_blank" class="detail-btn">資料</a>';
+    if (db_report[i]['doc']){
+      html_report += '  <a href="'+db_report[i]['doc']+'" title="Cloud.A Workshop「'+db_report[i]['title']+'」" target="_blank" class="detail-btn">資料</a>';
     }
 
     html_report += '</li>';

@@ -37,13 +37,77 @@ $(function(){
     );
   });
 
-  //nextSection
+  // nextSection
   $('.nextSection').click(function(){
     var position = $(this).parents('section').next('section').offset().top;
     console.log(position);
     $('html, body').animate({
       'scrollTop': position
     }, 1000);
+  });
+
+  var db_presenters = {
+    history: {
+      theme: 'Coming Soon!',
+      detail: 'Coming Soon!',
+      profile: '早稲田大学社会科学科4年'
+    },
+    economics: {
+      theme: 'Coming Soon!',
+      detail: 'Coming Soon!',
+      profile: '慶應義塾大学商学部'
+    },
+    education: {
+      theme: 'Coming Soon!',
+      detail: 'Coming Soon!',
+      profile: '大阪市立大学法学部'
+    },
+    medicine: {
+      theme: 'Coming Soon!',
+      detail: 'Coming Soon!',
+      profile: '明治薬科大学3年　医療ビジネスコンテスト<a href="https://www.facebook.com/medicalfuturefes" target="_blank">medical future fes2016</a>の会計役を務めています。'
+    },
+    biology: {
+      theme: 'Coming Soon!',
+      detail: 'Coming Soon!',
+      profile: '北里大学大学院修士1年'
+    },
+    none: {
+      theme: 'Coming Soon!',
+      detail: 'Coming Soon!',
+      profile: 'Coming Soon!'
+    }
+  };
+
+  var pr_labels = ['theme', 'detail', 'profile'];
+
+  // プレゼンター紹介のポップアップギミック
+  $('.presenter li').click(function(){
+    var name = $(this).attr('class');
+
+    var subject = $(this).text();
+    $('.presenter .field span').text(subject);
+
+    for(var i = 0; i < pr_labels.length; i++){
+      $('.presenter .field .'+pr_labels[i]).html(db_presenters[name][pr_labels[i]]);
+    }
+
+    $('.presenter .field').fadeIn();
+    $('.presenter .field .presenter-info').slideDown();
+  });
+
+  $('.presenter .field').click(function(){
+    $(this).fadeOut();
+    $(this).children('.presenter-info').slideUp();
+  });
+
+  $('.presenter .field .presenter-info').click(function(e){
+    e.stopPropagation();
+  });
+
+  $('.presenter .field .close-btn').click(function(){
+    $('.presenter .field').fadeOut();
+    $('.presenter .field .presenter-info').slideUp();
   });
 });
 
