@@ -4,7 +4,7 @@ $(function(){
     if (name == 'apply'){
       location.href = "https://docs.google.com/forms/d/1c_JFipOlrgoLr641PkUhajknDoxMh54oFcWk_PO7UbM/viewform";
     } else if(name == 'home'){
-      location.href = "http://www.cloud-academy.org/mobile/";
+      location.href = "http://www.cloud-academy.org";
     } else {
       position = $('section.'+name).offset().top;
       $('html, body').animate({
