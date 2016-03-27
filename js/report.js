@@ -18,7 +18,7 @@ var db_report = [
   {id: '017', date: '2012.09.22', title: '学校制度は必要か', url: 'https://www.facebook.com/events/407696519296465/', doc: 'https://www.dropbox.com/s/kqufhs7nomgnz2b/17.pdf?dl=0'},
   {id: '018', date: '2012.09.30', title: '第2回 哲学総選挙：西洋哲学vs東洋哲学', url: 'https://www.facebook.com/events/517852741563830/', doc: ''},
   {id: '019', date: '2013.01.13', title: '義務教育課程における私立校の役割', url: 'https://www.facebook.com/events/320296368075740/', doc: ''},
-  {id: '020', date: '2013.11.24', title: '20年後の日本を考える', url: '', doc: ''},
+  {id: '020', date: '2013.11.24', title: '20年後の日本を考える', url: 'https://www.facebook.com/events/572470146141315', doc: ''},
   {id: '021', date: '2014.04.29', title: '「学ぶ」と「働く」を接続する：僕らにとって「豊かな学び」とは', url: 'http://blog.livedoor.jp/midwhite/archives/7212476.html', doc: 'http://blog.livedoor.jp/midwhite/archives/7234440.html'},
   {id: '022', date: '2014.08.16', title: '僕らの政治参加の方法', url: 'http://blog.livedoor.jp/midwhite/archives/7422683.html', doc: 'https://www.dropbox.com/s/z0ulzds6fbzouj0/%E7%99%BA%E8%A1%A8.pdf?dl=0'},
   {id: '023', date: '2014.09.14', title: '僕らはグローバル化の先にどんな社会を選択するのか', url: 'https://www.facebook.com/events/912730795408424/', doc: 'http://blog.livedoor.jp/midwhite/archives/7542668.html'},

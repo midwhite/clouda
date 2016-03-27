@@ -13,7 +13,7 @@ function header(rootPath){
   html +=     '<li><a href="'+rootPath+'about.html">団体情報</a></li>'
   html +=     '<li><a href="'+rootPath+'report.html">活動報告</a></li>'
   html +=     '<li><a href="'+rootPath+'interview.html">メンバー</a></li>'
-  html +=     '<li><a href="'+rootPath+'contact.html">問い合わせ</a></li>'
+  html +=     '<li><a href="'+rootPath+'contact.html">登録受付</a></li>'
   html +=     '<li><a href="http://twitter.com/cloudacd/" target="_blank">Twitter</a></li>'
   html +=     '<li><a href="http://www.facebook.com/Cloudaworkshop/" target="_blank">Facebook</a></li>'
   html +=   '</ul>'
