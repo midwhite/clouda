@@ -47,6 +47,11 @@ $(function(){
   });
 
   var db_presenters = {
+    literature: {
+      theme: 'Coming Soon!',
+      detail: 'Coming Soon!',
+      profile: '早稲田大学文学部3年。国文学専攻。'
+    },
     history: {
       theme: 'Coming Soon!',
       detail: 'Coming Soon!',
@@ -71,11 +76,6 @@ $(function(){
       theme: 'マウスの遺伝子発現制御',
       detail: '生命の設計図とも言われるDNAですが、ヒトのDNA領域のうち、直接機能分子を決めている領域はわずか2%ほどであるということはご存知でしょうか？その他のDNA領域は何をしているのでしょう？ 疾患研究などにも絡め、初心者の方にもわかりやすく解説します。',
       profile: 'はじめまして。東京医科歯科大学修士１年の岡安春佳と申します。現在は国立成育医療研究センターでマウスの性分化の研究をしています！マウスかわいいですもぐもぐ（違'
-    },
-    none: {
-      theme: 'Coming Soon!',
-      detail: 'Coming Soon!',
-      profile: 'Coming Soon!'
     }
   };
 
