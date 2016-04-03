@@ -48,9 +48,9 @@ $(function(){
 
   var db_presenters = {
     literature: {
-      theme: 'Coming Soon!',
-      detail: 'Coming Soon!',
-      profile: '早稲田大学文学部3年。国文学専攻。'
+      theme: 'テキスト解釈について',
+      detail: 'みなさん文学はお好きですか？でもそもそも文学ってなんなのでしょう、私たちにとって必要なものなのでしょうか。一緒に考えていただけたら嬉しいです。',
+      profile: '早稲田大学文学部3年、国文学専攻です。ゆるゆると文学部で勉強しています。文学ってなんなのか、わからないままはや幾年。'
     },
     history: {
       theme: 'Coming Soon!',
